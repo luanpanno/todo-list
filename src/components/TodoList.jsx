@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import Todo from './Todo';
+
+import { Ul } from './styles';
 
 const TodoList = ({ todos, deleteTodo }) => {
     let id = 0;
@@ -8,6 +9,7 @@ const TodoList = ({ todos, deleteTodo }) => {
     return(
         <Ul>
             {todos.map(todo => {
+                todo = todo.trim();
                 if(todo == ''){
                     return null;
                 } else{
@@ -17,11 +19,5 @@ const TodoList = ({ todos, deleteTodo }) => {
         </Ul>
     );
 }
-
-const Ul = styled.ul`
-    margin: 25px 0;
-    width: 100%;
-    border-radius: 5px;
-`;
 
 export default TodoList;
